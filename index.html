@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Different Kind of Journey | Dr. Hamid Fazal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --muted: #5a6478;
+    --accent: #2d6a4f;
+    --accent-lt: #52b788;
+    --warm: #f8f5f0;
+    --card: #ffffff;
+    --rule: #d4c9b8;
+    --quote-bg: #eef6f1;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--warm);
+    color: var(--ink);
+    line-height: 1.85;
+    font-size: 17px;
+  }
+
+  /* ── HERO ───────────────────────────────────────── */
+  .hero {
+    background: linear-gradient(160deg, #0d1b2a 0%, #1b3a4b 55%, #2d6a4f 100%);
+    color: #fff;
+    padding: 70px 20px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 1;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 720px; margin: auto; }
+
+  .hero-photo {
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255,255,255,0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    margin-bottom: 24px;
+    animation: fadeUp 0.9s ease both;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-lt);
+    margin-bottom: 14px;
+    animation: fadeUp 0.9s 0.15s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(28px, 6vw, 46px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    animation: fadeUp 0.9s 0.25s ease both;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent-lt); }
+
+  .hero-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.04em;
+    animation: fadeUp 0.9s 0.35s ease both;
+    margin-bottom: 28px;
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    animation: fadeUp 0.9s 0.45s ease both;
+  }
+  .chip {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* ── FIELD PHOTO BANNER ─────────────────────────── */
+  .field-banner {
+    position: relative;
+    max-height: 380px;
+    overflow: hidden;
+  }
+  .field-banner img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    max-height: 380px;
+  }
+  .field-banner-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.65));
+    color: #fff;
+    font-size: 13px;
+    padding: 30px 20px 14px;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── LAYOUT ─────────────────────────────────────── */
+  .page { max-width: 780px; margin: 0 auto; padding: 0 20px 80px; }
+
+  /* ── NAV PILLS ──────────────────────────────────── */
+  .nav-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    padding: 28px 0 10px;
+  }
+  .nav-pills a {
+    display: inline-block;
+    padding: 6px 16px;
+    border: 1.5px solid var(--accent);
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .nav-pills a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  /* ── SECTION ────────────────────────────────────── */
+  section { margin-top: 56px; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .section-label span {
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(22px, 4vw, 28px);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  p { margin-bottom: 18px; color: #2c2c3e; }
+
+  /* ── PULL QUOTE ─────────────────────────────────── */
+  .pull-quote {
+    background: var(--quote-bg);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 26px;
+    margin: 32px 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(17px, 3vw, 20px);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* ── HARDSHIPS GRID ─────────────────────────────── */
+  .hardships {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    margin: 24px 0;
+  }
+  .hardship-card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .hardship-card .icon { font-size: 28px; margin-bottom: 8px; }
+  .hardship-card p {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* ── TIMELINE ───────────────────────────────────── */
+  .timeline { position: relative; padding-left: 30px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px; top: 6px; bottom: 6px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--accent-lt));
+    border-radius: 2px;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 32px;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 6px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--warm);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .tl-date {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .tl-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .tl-item p { font-size: 15px; color: var(--muted); margin: 0; }
+
+  /* ── MENTORS ────────────────────────────────────── */
+  .mentor-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 20px;
+  }
+  .mentor-card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 20px 22px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .mentor-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .mentor-title {
+    font-size: 12.5px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .mentor-desc {
+    font-size: 14.5px;
+    color: #3c3c52;
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  /* ── CLOSING CARD ───────────────────────────────── */
+  .closing-card {
+    background: linear-gradient(135deg, #0d1b2a, #2d6a4f);
+    color: #fff;
+    border-radius: 16px;
+    padding: 44px 36px;
+    text-align: center;
+    margin-top: 56px;
+  }
+  .closing-card p {
+    color: rgba(255,255,255,0.82);
+    max-width: 580px;
+    margin: 0 auto 14px;
+    font-size: 16px;
+  }
+  .closing-card .closing-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 24px;
+  }
+  .closing-card .closing-creds {
+    font-size: 13px;
+    color: var(--accent-lt);
+    letter-spacing: 0.06em;
+    margin-top: 6px;
+  }
+
+  /* ── DATE STAMP ─────────────────────────────────── */
+  .date-stamp {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ── ANIMATIONS ─────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ─────────────────────────────────── */
+  @media (max-width: 520px) {
+    .hero { padding: 50px 16px 44px; }
+    .closing-card { padding: 32px 20px; }
+    .pull-quote { padding: 16px 18px; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <img src="https://i.ibb.co/rDkdsnB/1780790660260.png"
+         alt="Dr. Hamid Fazal"
+         class="hero-photo">
+    <div class="hero-tag">Reflection &nbsp;·&nbsp; May 2026</div>
+    <h1>A Different Kind of <em>Journey</em></h1>
+    <p class="hero-sub">
+      One year of community outreach &mdash; serving remote and underserved populations<br>
+      in Karachi and its peripherals
+    </p>
+    <div class="hero-chips">
+      <span class="chip">📍 Karachi &amp; Peripherals</span>
+      <span class="chip">🏥 Community Health</span>
+      <span class="chip">❤️ Patient-Centered Care</span>
+    </div>
+  </div>
+</div>
+
+<!-- FIELD PHOTO -->
+<div class="field-banner">
+  <img src="https://i.ibb.co/HfqhCYsX/IMG-20260219-WA0025.jpg"
+       alt="Dr. Hamid Fazal conducting a community outreach consultation">
+  <div class="field-banner-caption">
+    Community outreach consultation — where every visit carries the weight of trust and hope
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="page">
+
+  <nav class="nav-pills">
+    <a href="#beginning">The Beginning</a>
+    <a href="#challenges">Challenges</a>
+    <a href="#one-year">One Year Later</a>
+    <a href="#gratitude">Gratitude</a>
+    <a href="#ahead">Looking Ahead</a>
+  </nav>
+
+  <!-- THE BEGINNING -->
+  <section id="beginning">
+    <div class="section-label"><span>The Beginning</span></div>
+    <h2>The Road Less Traveled</h2>
+    <p>
+      For nearly four years, I served as a Senior Medical Officer and OPD In-Charge for chronic
+      disease management, caring for patients with complex long-term health conditions. During this
+      period, I had the privilege of working under the mentorship of Professor Dr. Waqar Kazmi,
+      one of Pakistan's leading nephrologists and former Medical Superintendent and Principal of
+      Karachi Medical and Dental College (KMDC).
+    </p>
+    <p>
+      Over those years, I was entrusted with the care of thousands of patients. Many traveled long
+      distances to seek consultation, often waiting for hours to be seen. It was a position that
+      offered professional stability, clinical growth, leadership responsibility, and the
+      opportunity to make a meaningful difference in patients' lives.
+    </p>
+    <p>Then an unexpected opportunity presented itself.</p>
+    <p>
+      I was offered a position in a community outreach program serving remote and underserved
+      populations where access to healthcare was limited — or, in some cases, entirely absent.
+      The role required daily travel to communities that often had little access to qualified
+      medical professionals. The mission was simple yet profound: to bring healthcare directly to
+      people who might otherwise go without it.
+    </p>
+
+    <div class="pull-quote">
+      "Professionally, it was not the obvious next step. The position offered neither greater
+      financial rewards nor greater prestige. In many ways, it represented a move away from
+      comfort and certainty."
+    </div>
+
+    <p>
+      Yet I saw an opportunity to contribute where the need was greatest and where the impact of
+      each day's work could be felt most directly. I chose to leave the comfort of a
+      well-established hospital-based leadership role and embrace this challenge.
+    </p>
+    <p>
+      A significant part of my responsibilities involved supporting individuals facing mental health
+      challenges, many of whom had limited access to specialized services. The work demanded not
+      only clinical knowledge but also patience, empathy, cultural understanding, and the ability
+      to build trust within communities. It was healthcare delivered not in ideal circumstances,
+      but in the realities of everyday life.
+    </p>
+  </section>
+
+  <!-- CHALLENGES -->
+  <section id="challenges">
+    <div class="section-label"><span>Challenges</span></div>
+    <h2>The Reality of the Field</h2>
+    <p>
+      The work was demanding. There were days spent in extreme heat, in locations without
+      electricity, fans, or adequate facilities. Long travel hours, limited resources, and
+      challenging working conditions became part of daily life. Yet these difficulties also
+      provided invaluable lessons in resilience, adaptability, and service.
+    </p>
+
+    <div class="hardships">
+      <div class="hardship-card">
+        <div class="icon">☀️</div>
+        <p>Extreme heat &amp; harsh outdoor conditions</p>
+      </div>
+      <div class="hardship-card">
+        <div class="icon">🔌</div>
+        <p>No electricity or cooling at camp sites</p>
+      </div>
+      <div class="hardship-card">
+        <div class="icon">🚗</div>
+        <p>Long daily travel to remote communities</p>
+      </div>
+      <div class="hardship-card">
+        <div class="icon">📦</div>
+        <p>Limited equipment &amp; medical resources</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ONE YEAR LATER -->
+  <section id="one-year">
+    <div class="section-label"><span>One Year Later</span></div>
+    <h2>Tested, Transformed, Committed</h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">May 2025</div>
+        <h3>A New Chapter Begins</h3>
+        <p>Stepped away from hospital leadership to begin full-time community outreach work across Karachi and its surrounding areas.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Throughout the Year</div>
+        <h3>Daily Service in the Field</h3>
+        <p>Daily travel to underserved communities — building trust, delivering care, and supporting mental health needs in the most challenging conditions.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">May 2026</div>
+        <h3>One Year Complete</h3>
+        <p>Completing this milestone with deepened clinical insight, stronger resolve, and an unwavering commitment to serving those beyond the reach of conventional healthcare.</p>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      "Today, I can confidently say that I am a different physician than I was a year ago.
+      This experience has deepened my understanding of the communities we serve and reinforced
+      the importance of compassion, accessibility, and human connection in healthcare."
+    </div>
+
+    <p>
+      The year brought its share of hardships, but it also brought some of the most meaningful
+      experiences of my professional life. It tested my endurance, strengthened my
+      problem-solving abilities, and reminded me why I chose medicine as a career in the first
+      place. The personal satisfaction of serving vulnerable and underserved populations has been
+      immeasurable.
+    </p>
+  </section>
+
+  <!-- GRATITUDE -->
+  <section id="gratitude">
+    <div class="section-label"><span>Gratitude</span></div>
+    <h2>With Deep Gratitude</h2>
+    <p>
+      No professional journey is undertaken alone. Long before I entered community outreach work,
+      I had the privilege of learning from exceptional teachers, mentors, and clinicians whose
+      guidance helped shape my approach to medicine. I remain deeply grateful to each of them —
+      their dedication to excellence, patient care, and medical education continues to influence
+      my work every day.
+    </p>
+
+    <div class="mentor-grid">
+
+      <div class="mentor-card">
+        <div class="mentor-name">Professor Raza-ur-Rehman</div>
+        <div class="mentor-title">Head of Department of Psychiatry<br>Civil Hospital Karachi</div>
+        <p class="mentor-desc">One of Karachi's senior psychiatric academics, Professor Raza-ur-Rehman opened the door to my clinical training in psychiatry in 2012–2013, providing supervised attachments at a leading public teaching hospital and personally directing me toward the opportunity at IBS that shaped the next chapter of my career.</p>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-name">Professor Sohail</div>
+        <div class="mentor-title">Clinical Head, Institute of Behavioral Sciences (IBS), Dr. A.Q. Khan Centre &amp; Head of Department of Psychiatry, Abbasi Shaheed Hospital</div>
+        <p class="mentor-desc">A distinguished psychiatrist holding concurrent leadership at two major institutions, Professor Sohail personally selected me to join the IBS clinical team — a decision that reflects the standards he applied in building his department. His confidence in my abilities at an early stage of my psychiatric career remains one of the most significant professional endorsements I have received.</p>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-name">Dr. Zobia Ramzan</div>
+        <div class="mentor-title">Consultant Psychiatrist &amp; Assistant Professor<br>Institute of Behavioral Sciences (IBS), Dr. A.Q. Khan Centre</div>
+        <p class="mentor-desc">A specialist clinician and academic at IBS, Dr. Zobia Ramzan was a senior colleague and supervisor during my five years at the institute (2014–2019). Working alongside her provided daily exposure to rigorous psychiatric practice within a structured academic environment.</p>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-name">Professor Waqar Kazmi</div>
+        <div class="mentor-title">Professor of Nephrology &amp; Former Medical Superintendent and Principal<br>Karachi Medical and Dental College (KMDC)</div>
+        <p class="mentor-desc">One of Pakistan's foremost nephrologists and a highly respected hospital administrator, Professor Waqar Kazmi mentored me through nearly four years of hospital-based chronic disease management. His standard of clinical leadership and his trust in entrusting me with complex patient care shaped my approach to internal medicine and institutional responsibility.</p>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-name">Professor Nadeem Iqbal</div>
+        <div class="mentor-title">Associate Professor of Psychiatry<br>Abbasi Shaheed Hospital, Karachi</div>
+        <p class="mentor-desc">A respected academic psychiatrist, Professor Nadeem Iqbal's patient-centered clinical approach and dedication to teaching left a lasting impression during my time as Evening Resident Medical Officer at G.A. Asghar Hospital. His example reinforced the standard of care I aspire to carry into every clinical setting.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LOOKING AHEAD -->
+  <section id="ahead">
+    <div class="section-label"><span>Looking Ahead</span></div>
+    <h2>At the Crossroads</h2>
+    <p>
+      As I write this, I find myself at a crossroads. Whether I continue along this path for some
+      time longer or return to a more traditional hospital-based role remains an open question.
+      What I do know is that this experience has become one of the most meaningful chapters of my
+      professional life.
+    </p>
+    <p>
+      The setting may change, the specialty may evolve, and the responsibilities may differ, but
+      the underlying purpose remains the same: to use my training, experience, and compassion in
+      service of those who need it most.
+    </p>
+  </section>
+
+  <!-- CLOSING -->
+  <div class="closing-card">
+    <div class="pull-quote" style="background:rgba(255,255,255,0.08); border-color:var(--accent-lt); color:#fff; border-radius:8px; margin-bottom:24px;">
+      "Regardless of where my career leads next, this journey has reinforced my commitment to
+      patient-centered care, public service, and reaching individuals who might otherwise remain
+      beyond the reach of healthcare."
+    </div>
+    <p>
+      For now, I remain grateful for the journey, the people I have met, the lessons I have
+      learned, and the lives I have had the privilege to serve.
+    </p>
+    <p>Time will reveal where the next chapter leads.</p>
+    <div class="closing-name">Dr. Hamid Fazal</div>
+    <div class="closing-creds">MBBS &nbsp;·&nbsp; ECFMG Certified Physician</div>
+  </div>
+
+  <div class="date-stamp">Written &mdash; May 2026 &nbsp;·&nbsp; Karachi, Pakistan</div>
+
+</div><!-- /page -->
+
+</body>
+</html>
+
